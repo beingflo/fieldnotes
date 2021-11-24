@@ -23,9 +23,9 @@ const App = (): React.ReactElement => {
   return (
     <>
       <div className="h-auto w-full relative">
-        <div className="mx-auto break-words max-w-prose">
+        <div className="mx-auto break-words sm:max-w-md md:min-w-sm lg:max-w-2xl">
           <div
-            className="prose prose-sm md:prose py-6 md:py-6 px-6 md:px-2"
+            className="prose prose-sm md:prose py-6 md:py-6 px-8 md:px-2"
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
           />
         </div>
