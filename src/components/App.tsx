@@ -4,6 +4,7 @@ import { decrypt_metadata, decrypt_note } from './crypto';
 import DOMPurify from 'dompurify';
 import { Publication, PublicationResult } from '../api/types';
 import { sortPublications } from '../util';
+import { Publications } from './Publications';
 
 const App = (): React.ReactElement => {
   const path = window.location.pathname.substring(1);
@@ -70,11 +71,7 @@ const App = (): React.ReactElement => {
   return (
     <>
       {isProfile ? (
-        <>
-          {publications.map((publication: Publication) => (
-            <div key={publication.token}>{publication.title}</div>
-          ))}
-        </>
+        <Publications publications={publications} />
       ) : (
         <div className="h-auto w-full">
           <div className="mx-auto w-max sm:max-w-md md:min-w-sm lg:max-w-2xl">
