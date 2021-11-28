@@ -6,6 +6,8 @@ import { Publication, PublicationResult } from '../api/types';
 import { sortPublications } from '../util';
 import { Publications } from './Publications';
 
+export const NOTE_LINK = 'note/';
+
 const App = (): React.ReactElement => {
   const path = window.location.pathname.substring(1);
   const hash = window.location.hash.substring(1);
@@ -15,7 +17,7 @@ const App = (): React.ReactElement => {
     []
   );
 
-  const isProfile = !path.startsWith('note/');
+  const isProfile = !path.startsWith(NOTE_LINK);
 
   React.useEffect(() => {
     if (!isProfile) {
@@ -55,6 +57,7 @@ const App = (): React.ReactElement => {
                 token: publication.token,
                 created_at: publication.created_at,
                 modified_at: publication.modified_at,
+                public: publication.public,
               };
             }
           })
@@ -74,7 +77,7 @@ const App = (): React.ReactElement => {
         <Publications publications={publications} username={path} />
       ) : (
         <div className="h-auto w-full">
-          <div className="mx-auto w-max sm:max-w-md md:min-w-sm lg:max-w-2xl">
+          <div className="mx-auto w-max max-w-full sm:max-w-md md:min-w-sm lg:max-w-2xl">
             <div
               className="prose prose-sm md:prose py-6 md:py-6 px-8 md:px-2"
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note) }}

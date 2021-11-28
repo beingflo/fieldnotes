@@ -1,5 +1,6 @@
 import React from 'react';
 import { Publication } from '../api/types';
+import { NOTE_LINK } from './App';
 
 export type Props = {
   publications: Array<Publication>;
@@ -20,12 +21,16 @@ export const Publications = ({
     });
   };
 
+  const shareLink = (publication: Publication): string => {
+    return `${NOTE_LINK}${publication.token}#${publication.public}`;
+  };
+
   return (
-    <div className="mx-auto w-max max-w-full prose prose-sm md:prose-lg px-4 sm:max-w-md md:max-w-lg lg:max-w-2xl">
+    <div className="mx-auto w-max max-w-full prose prose-sm md:prose px-4 sm:max-w-md md:max-w-lg lg:max-w-2xl">
       <div className="pt-8 pb-8 font-bold text-2xl">{username}</div>
       {publications.map((publication: Publication) => (
         <div key={publication.token} className="pb-4">
-          <a href={'www.google.ch'}>{publication.title}</a>
+          <a href={shareLink(publication)}>{publication.title}</a>
           <div className="text-gray-500">
             {creationDate(publication.created_at)}
           </div>
