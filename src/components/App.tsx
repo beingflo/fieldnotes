@@ -71,7 +71,7 @@ const App = (): React.ReactElement => {
   return (
     <>
       {isProfile ? (
-        <Publications publications={publications} />
+        <Publications publications={publications} username={path} />
       ) : (
         <div className="h-auto w-full">
           <div className="mx-auto w-max sm:max-w-md md:min-w-sm lg:max-w-2xl">
