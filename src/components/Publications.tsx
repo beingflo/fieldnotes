@@ -23,7 +23,7 @@ export const Publications = ({
   };
 
   const shareLink = (publication: Publication): string => {
-    return `${NOTE_LINK}${publication.token}#${publication.public}`;
+    return `${NOTE_LINK}${publication.token}?back=${username}#${publication.public}`;
   };
 
   const shouldShowModificationDate = (publication: Publication): boolean => {
