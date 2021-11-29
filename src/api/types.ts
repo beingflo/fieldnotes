@@ -4,7 +4,7 @@ export type PublicationResult = {
   modified_at: string;
   metadata: string;
   public: string;
-  key: string;
+  iv: string;
 };
 
 export type Publication = {

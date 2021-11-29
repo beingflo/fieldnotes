@@ -7,7 +7,7 @@ const PUBLICATION_URL = `${config.api_url}/publications`;
 
 export const access_share = (
   id: string
-): Promise<{ content: string; key: string }> => {
+): Promise<{ content: string; iv: string }> => {
   return fetch(`${SHARE_URL}/${id}`, {
     method: 'GET',
     headers: {

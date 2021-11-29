@@ -33,9 +33,8 @@ const App = (): React.ReactElement => {
       const token = path.substring(5);
       access_share(token).then((response) => {
         const encryptedContent = response?.content;
-        const key = JSON.parse(response?.key);
 
-        decrypt_note(hash, key?.iv_content, encryptedContent).then((content) =>
+        decrypt_note(hash, response.iv, encryptedContent).then((content) =>
           setNote(content ?? '')
         );
       });
@@ -50,11 +49,10 @@ const App = (): React.ReactElement => {
         const pubs = await Promise.allSettled(
           response.map(async (publication: PublicationResult) => {
             const encryptedMetadata = publication?.metadata;
-            const wrapped_key = JSON.parse(publication?.key);
 
             const metadata = await decrypt_metadata(
               publication.public,
-              wrapped_key.iv_metadata,
+              publication.iv,
               encryptedMetadata
             );
             if (metadata) {
