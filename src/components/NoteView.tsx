@@ -1,7 +1,7 @@
 import React from 'react';
 import { access_share } from '../api/share_api';
 import { decrypt_note } from './crypto';
-import { ArrowLeftIcon } from './icons';
+import { ArrowLeftIcon, FrownIcon } from './icons';
 import DOMPurify from 'dompurify';
 import useLocation from 'wouter/use-location';
 
@@ -29,17 +29,25 @@ export type Props = {
 export const NoteView = ({ token = '' }: Props): React.ReactElement => {
   const [note, setNote] = React.useState('');
   const [, setLocation] = useLocation();
+  const [waiting, setWaiting] = React.useState(true);
+  const [error, setError] = React.useState(false);
 
   const hash = getHash();
 
   React.useEffect(() => {
-    access_share(token).then((response) => {
-      const encryptedContent = response?.content;
+    access_share(token)
+      .then((response) => {
+        const encryptedContent = response?.content;
 
-      decrypt_note(hash, response.iv, encryptedContent).then((content) =>
-        setNote(content ?? '')
-      );
-    });
+        decrypt_note(hash, response.iv, encryptedContent)
+          .then((content) => setNote(content ?? ''))
+          .catch(() => setError(true))
+          .finally(() => setWaiting(false));
+      })
+      .catch(() => {
+        setError(true);
+        setWaiting(false);
+      });
   }, [hash, token]);
 
   const backRef = getQuery();
@@ -49,6 +57,21 @@ export const NoteView = ({ token = '' }: Props): React.ReactElement => {
       setLocation(`/${backRef}`);
     }
   };
+
+  if (waiting) {
+    return <div>Waiting</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
+        <FrownIcon className="w-24 h-24 text-gray-800" />
+        <div className="text-lg font-mono text-gray-800">
+          Something went wrong
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-auto w-full">
