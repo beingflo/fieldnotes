@@ -1,17 +1,54 @@
 import React from 'react';
-import { Publication } from '../api/types';
-import { NOTE_LINK } from './App';
+import { Publication, PublicationResult } from '../api/types';
 import { EditIcon } from './icons';
+import { sortPublications } from '../util';
+import { list_publication } from '../api/share_api';
+import { decrypt_metadata } from './crypto';
+import { NOTE_LINK } from './NoteView';
 
 export type Props = {
-  publications: Array<Publication>;
   username: string;
 };
 
-export const Publications = ({
-  publications,
-  username,
-}: Props): React.ReactElement => {
+export const PublicationsView = ({ username }: Props): React.ReactElement => {
+  const [publications, setPublications] = React.useState<Array<Publication>>(
+    []
+  );
+
+  React.useEffect(() => {
+    const func = async () => {
+      const response = await list_publication(username);
+      const pubs = await Promise.allSettled(
+        response.map(async (publication: PublicationResult) => {
+          const encryptedMetadata = publication?.metadata;
+
+          const metadata = await decrypt_metadata(
+            publication.public,
+            publication.iv,
+            encryptedMetadata
+          );
+          if (metadata) {
+            const { title, tags } = JSON.parse(metadata);
+
+            return {
+              title: title,
+              tags: tags,
+              token: publication.token,
+              created_at: publication.created_at,
+              modified_at: publication.modified_at,
+              public: publication.public,
+            };
+          }
+        })
+      );
+      const decryptedPubs = pubs.map((result: any) => result?.value);
+      const sortedPubs = sortPublications(decryptedPubs);
+      setPublications(sortedPubs);
+    };
+
+    func();
+  }, [username]);
+
   const creationDate = (date: string): string => {
     const d = new Date(date);
 
@@ -35,7 +72,7 @@ export const Publications = ({
 
   return (
     <div className="mx-auto py-8 w-max max-w-full prose prose-sm md:prose px-4 sm:max-w-md md:max-w-lg lg:max-w-2xl">
-      <div className="pb-8 font-bold text-2xl">{username}</div>
+      <div className="pb-8 font-bold text-2xl">Posts by {username}</div>
       {publications.map((publication: Publication) => (
         <div key={publication.token} className="pb-4">
           <a className="text-lg" href={shareLink(publication)}>
@@ -58,4 +95,4 @@ export const Publications = ({
   );
 };
 
-export default Publications;
+export default PublicationsView;
