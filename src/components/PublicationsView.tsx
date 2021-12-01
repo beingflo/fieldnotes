@@ -5,6 +5,7 @@ import { sortPublications } from '../util';
 import { list_publication } from '../api/share_api';
 import { decrypt_metadata } from './crypto';
 import { NOTE_LINK } from './NoteView';
+import { SpinnerPage } from './Spinner';
 
 export type Props = {
   username: string;
@@ -83,7 +84,7 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
   };
 
   if (waiting) {
-    return <div>Waiting</div>;
+    return <SpinnerPage />;
   }
 
   if (error) {

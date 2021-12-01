@@ -4,6 +4,7 @@ import { decrypt_note } from './crypto';
 import { ArrowLeftIcon, FrownIcon } from './icons';
 import DOMPurify from 'dompurify';
 import useLocation from 'wouter/use-location';
+import { SpinnerPage } from './Spinner';
 
 export const BACK_QUERY = '?back=';
 export const NOTE_LINK = 'note/';
@@ -59,7 +60,7 @@ export const NoteView = ({ token = '' }: Props): React.ReactElement => {
   };
 
   if (waiting) {
-    return <div>Waiting</div>;
+    return <SpinnerPage />;
   }
 
   if (error) {
