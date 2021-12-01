@@ -1,6 +1,6 @@
 import React from 'react';
 import { Publication, PublicationResult } from '../api/types';
-import { EditIcon } from './icons';
+import { EditIcon, FrownIcon } from './icons';
 import { sortPublications } from '../util';
 import { list_publication } from '../api/share_api';
 import { decrypt_metadata } from './crypto';
@@ -14,10 +14,20 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
   const [publications, setPublications] = React.useState<Array<Publication>>(
     []
   );
+  const [waiting, setWaiting] = React.useState(true);
+  const [error, setError] = React.useState(false);
 
   React.useEffect(() => {
     const func = async () => {
-      const response = await list_publication(username);
+      const response = await list_publication(username).catch(() => {
+        setError(true);
+        setWaiting(false);
+      });
+
+      if (!response) {
+        return;
+      }
+
       const pubs = await Promise.allSettled(
         response.map(async (publication: PublicationResult) => {
           const encryptedMetadata = publication?.metadata;
@@ -40,7 +50,9 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
             };
           }
         })
-      );
+      ).finally(() => {
+        setWaiting(false);
+      });
       const decryptedPubs = pubs.map((result: any) => result?.value);
       const sortedPubs = sortPublications(decryptedPubs);
       setPublications(sortedPubs);
@@ -69,6 +81,21 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
 
     return created_at.toDateString() !== modifiet_at.toDateString();
   };
+
+  if (waiting) {
+    return <div>Waiting</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
+        <FrownIcon className="w-24 h-24 text-gray-800" />
+        <div className="text-lg font-mono text-gray-800">
+          Something went wrong
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto py-8 w-max max-w-full prose prose-sm md:prose px-4 sm:max-w-md md:max-w-lg lg:max-w-2xl">
