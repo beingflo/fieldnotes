@@ -1,7 +1,7 @@
 import React from 'react';
 import { access_share } from '../api/share_api';
 import { decrypt_note } from './crypto';
-import { ArrowLeftIcon, FrownIcon } from './icons';
+import { ArrowLeftIcon, FrownIcon, SadIcon } from './icons';
 import DOMPurify from 'dompurify';
 import useLocation from 'wouter/use-location';
 import { SpinnerPage } from './Spinner';
@@ -66,9 +66,9 @@ export const NoteView = ({ token = '' }: Props): React.ReactElement => {
   if (error) {
     return (
       <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
-        <FrownIcon className="w-24 h-24 text-gray-800" />
-        <div className="text-lg font-mono text-gray-800">
-          Something went wrong
+        <div className="flex flex-col items-center">
+          <SadIcon className="w-24 h-24 text-gray-800" />
+          <div className="text-lg text-gray-800">Something went wrong</div>
         </div>
       </div>
     );

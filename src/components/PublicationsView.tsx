@@ -1,6 +1,6 @@
 import React from 'react';
 import { Publication, PublicationResult } from '../api/types';
-import { EditIcon, FrownIcon } from './icons';
+import { EditIcon, FrownIcon, SadIcon } from './icons';
 import { sortPublications } from '../util';
 import { list_publication } from '../api/share_api';
 import { decrypt_metadata } from './crypto';
@@ -90,9 +90,9 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
   if (error) {
     return (
       <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
-        <FrownIcon className="w-24 h-24 text-gray-800" />
-        <div className="text-lg font-mono text-gray-800">
-          Something went wrong
+        <div className="flex flex-col items-center">
+          <SadIcon className="w-24 h-24 text-gray-800" />
+          <div className="text-lg text-gray-800">Something went wrong</div>
         </div>
       </div>
     );
