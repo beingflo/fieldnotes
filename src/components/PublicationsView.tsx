@@ -92,7 +92,9 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
       <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
         <div className="flex flex-col items-center">
           <SadIcon className="w-24 h-24 text-gray-800" />
-          <div className="text-lg text-gray-800">Something went wrong</div>
+          <div className="text-lg text-gray-800">
+            There doesn't appear to be anything here
+          </div>
         </div>
       </div>
     );
