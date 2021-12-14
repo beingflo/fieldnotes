@@ -102,7 +102,9 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
 
   return (
     <div className="mx-auto py-8 w-max max-w-full prose prose-sm md:prose px-4 sm:max-w-md md:max-w-lg lg:max-w-2xl">
-      <div className="pb-8 font-bold text-2xl">Posts by {username}</div>
+      <div className="pb-8 font-bold text-2xl text-black">
+        {username}'s fieldnotes
+      </div>
       {publications.map((publication: Publication) => (
         <div key={publication.token} className="pb-4">
           <a className="text-lg" href={shareLink(publication)}>
