@@ -35,5 +35,5 @@ jobs:
           SOURCE: 'dist/'
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
-          TARGET: '/var/www/read.fieldnotes.land/'
+          TARGET: '/var/www/fieldnotes.land/'
           EXCLUDE: '/dist/, /node_modules/'
