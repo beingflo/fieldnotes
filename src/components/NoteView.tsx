@@ -80,7 +80,7 @@ export const NoteView = ({ token = '' }: Props): React.ReactElement => {
         {backRef && (
           <button
             onClick={handleBack}
-            className="pb-4 flex flex-row gap-1 items-center text-gray-700 hover:-translate-x-0.5 transform transition active:scale-90"
+            className="pb-4 flex flex-row gap-1 items-center text-gray-700 hover:-translate-x-0.5 transition active:scale-90"
           >
             <ArrowLeftIcon className="h-5 w-5" />
             <div>{backRef}</div>
