@@ -10,12 +10,6 @@ const LandingPage = (): React.ReactElement => {
         <img className="w-16 h-16" src={logo} />
         <div className="text-2xl font-bold">fieldnotes</div>
       </div>
-      <div className="w-full pt-40 sm:pt-16 flex flex-col items-center">
-        <div className="flex flex-col items-center">
-          <HappyIcon className="w-24 h-24" />
-          <div className="text-xl">Coming soon! :)</div>
-        </div>
-      </div>
     </div>
   );
 };
