@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '/fieldnotes.png';
-import { HappyIcon } from './icons';
 import '../style.css';
 
 const LandingPage = (): React.ReactElement => {
