@@ -5,6 +5,7 @@ import Headline from './Headline';
 import Features from './Features';
 import Open from './Open';
 import Pricing from './Pricing';
+import Footer from './Footer';
 
 const LandingPage = (): React.ReactElement => {
   return (
@@ -25,6 +26,7 @@ const LandingPage = (): React.ReactElement => {
       <Features />
       <Open />
       <Pricing />
+      <Footer />
     </div>
   );
 };
