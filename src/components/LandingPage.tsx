@@ -2,11 +2,12 @@ import React from 'react';
 import logo from '/fieldnotes.png';
 import '../style.css';
 import Headline from './Headline';
+import Features from './Features';
 
 const LandingPage = (): React.ReactElement => {
   return (
-    <div className="flex flex-col py-8 px-16">
-      <div className="flex flex-row w-full justify-between items-center">
+    <div className="flex flex-col py-8">
+      <div className="flex flex-row px-16 w-full justify-between items-center">
         <div className="flex flex-row gap-4 items-center">
           <img className="w-12 h-12" src={logo} />
           <div className="text-xl font-bold">fieldnotes</div>
@@ -19,6 +20,7 @@ const LandingPage = (): React.ReactElement => {
         </div>
       </div>
       <Headline />
+      <Features />
     </div>
   );
 };
