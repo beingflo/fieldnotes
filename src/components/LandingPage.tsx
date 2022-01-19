@@ -3,6 +3,8 @@ import logo from '/fieldnotes.png';
 import '../style.css';
 import Headline from './Headline';
 import Features from './Features';
+import Open from './Open';
+import Pricing from './Pricing';
 
 const LandingPage = (): React.ReactElement => {
   return (
@@ -21,6 +23,8 @@ const LandingPage = (): React.ReactElement => {
       </div>
       <Headline />
       <Features />
+      <Open />
+      <Pricing />
     </div>
   );
 };
