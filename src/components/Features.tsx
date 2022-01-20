@@ -63,7 +63,7 @@ const Features = (): React.ReactElement => {
               className="pl-1 underline"
               href="https://fieldnotes.land/florian"
             >
-              See the feed of the creator of fieldnotes for inspiration
+              See the feed of the creator of fieldnotes
             </a>
           </div>
         </div>
