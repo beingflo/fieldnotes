@@ -15,12 +15,13 @@ const LandingPage = (): React.ReactElement => {
           <img className="w-12 h-12" src={logo} />
           <div className="text-xl font-bold">fieldnotes</div>
         </div>
-        <div className="flex flex-row gap-2">
-          <div>Pricing</div>
-          <div>Open Source</div>
-          <div>Login</div>
-          <div>Signup</div>
-        </div>
+        <ul className="flex flex-row items-center gap-6">
+          <li>Features</li>
+          <li>Open</li>
+          <li>Pricing</li>
+          <li className="underline">Log in</li>
+          <li className="highlight-small">Sign up</li>
+        </ul>
       </div>
       <Headline />
       <Features />
