@@ -36,6 +36,25 @@ const Open = (): React.ReactElement => {
           </a>
         </div>
       </div>
+      <div className="flex flex-col p-16 items-center">
+        <div className="text-4xl font-semibold text-center">Open Data</div>
+        <div className="text-center pt-4">
+          Data should not be constrained to one application.
+          <br /> That's why you can export your notes in multiple formats at any
+          time, no vendor lock in. <br />
+          <br />
+          Data should be owned by the user. For this reason, you can supply your
+          own storage backend <br /> to synchronize your notes as you write
+          them, ensuring we cannot keep your data hostage.
+        </div>
+      </div>
+      <div className="flex flex-col p-16 items-center">
+        <div className="text-4xl font-semibold text-center">Open Business</div>
+        <div className="text-center pt-4">
+          We don't like secrecy. You should have access to information <br />
+          to make informed decisions about the home of your notes.
+        </div>
+      </div>
     </div>
   );
 };
