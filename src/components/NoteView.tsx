@@ -76,7 +76,7 @@ export const NoteView = ({ token = '' }: Props): React.ReactElement => {
 
   return (
     <div className="h-auto w-full">
-      <div className="mx-auto w-max max-w-full min-w-full sm:min-w-sm lg:max-w-2xl py-4 md:py-6 px-4 md:px-2 prose prose-sm md:prose 2xl:prose-lg">
+      <div className="mx-auto w-max max-w-full min-w-full sm:min-w-sm lg:max-w-2xl py-4 md:py-6 px-4 md:px-2 prose prose-sm md:prose">
         {backRef && (
           <button
             onClick={handleBack}
