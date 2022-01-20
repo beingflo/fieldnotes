@@ -3,7 +3,7 @@ import '../style.css';
 
 const Features = (): React.ReactElement => {
   return (
-    <div className="bg-[#9EAA9D] mt-12">
+    <div className="bg-[#F9F2DC] mt-12">
       <span className="absolute font-bold p-2 text-white bg-black">
         features
       </span>
