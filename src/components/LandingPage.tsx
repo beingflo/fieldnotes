@@ -20,7 +20,9 @@ const LandingPage = (): React.ReactElement => {
           <li>Open</li>
           <li>Pricing</li>
           <li className="underline">Log in</li>
-          <li className="highlight-small">Sign up</li>
+          <li className="border p-0.5 border-gray-800 rounded-sm shadow-md">
+            Sign up
+          </li>
         </ul>
       </div>
       <Headline />
