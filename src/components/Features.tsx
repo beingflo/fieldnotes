@@ -3,7 +3,7 @@ import '../style.css';
 
 const Features = (): React.ReactElement => {
   return (
-    <div className="bg-[#F9F2DC] mt-12">
+    <div className="bg-[#F9F2DC] mt-24">
       <span className="absolute font-bold p-2 text-white bg-black">
         features
       </span>
@@ -63,7 +63,7 @@ const Features = (): React.ReactElement => {
               className="pl-1 underline"
               href="https://fieldnotes.land/florian"
             >
-              See the feed of the creator of fieldnotes for inspiration
+              See the feed of the creator of fieldnotes
             </a>
           </div>
         </div>
