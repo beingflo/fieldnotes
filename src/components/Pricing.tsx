@@ -8,13 +8,13 @@ const Pricing = (): React.ReactElement => {
         pricing
       </span>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 p-24">
-        <div className="bg-black text-white p-4 rounded-md">
+        <div className="bg-black text-white p-4 rounded-lg">
           <div className="text-2xl">Self hosted</div>
           <div className="pt-4 flex flex-row items-center">
             <span className="text-4xl">free</span>
           </div>
         </div>
-        <div className="bg-black text-white p-4 rounded-md">
+        <div className="bg-black text-white p-4 rounded-lg">
           <div className="text-2xl">Cloud</div>
           <div className="pt-4 flex flex-row items-center">
             <span className="text-4xl">$2</span>
