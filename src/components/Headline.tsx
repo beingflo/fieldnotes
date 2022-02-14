@@ -5,8 +5,8 @@ import '../style.css';
 const Headline = (): React.ReactElement => {
   return (
     <div className="flex flex-col pt-16 items-center">
-      <div className="text-6xl font-bold">Keep note of the noteworthy</div>
-      <div className="pt-12 text-4xl font-bold highlight">
+      <div className="text-6xl">Keep note of the noteworthy</div>
+      <div className="pt-12 text-4xl highlight">
         Minimalist encrypted note taking
       </div>
       <div className="pt-2 text-xl text-center">
