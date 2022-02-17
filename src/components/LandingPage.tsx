@@ -16,18 +16,13 @@ const LandingPage = (): React.ReactElement => {
           <div className="text-xl font-bold">fieldnotes</div>
         </div>
         <ul className="flex flex-row items-center gap-6">
-          <li>Pricing</li>
-          <li className="underline">Log in</li>
-          <li className="border p-0.5 border-gray-800 rounded-sm shadow-md">
+          <li className="border-r border-gray-500 pr-6">Pricing</li>
+          <li className="border-r border-gray-500 pr-6">Log in</li>
+          <li className="border p-1 border-gray-500 rounded-sm shadow-md">
             Sign up
           </li>
         </ul>
       </div>
-      <Headline />
-      <Features />
-      <Open />
-      <Pricing />
-      <Footer />
     </div>
   );
 };
