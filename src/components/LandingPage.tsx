@@ -1,11 +1,6 @@
 import React from 'react';
 import logo from '/fieldnotes.png';
 import '../style.css';
-import Headline from './Headline';
-import Features from './Features';
-import Open from './Open';
-import Pricing from './Pricing';
-import Footer from './Footer';
 
 const LandingPage = (): React.ReactElement => {
   return (
@@ -17,10 +12,15 @@ const LandingPage = (): React.ReactElement => {
         </div>
         <ul className="flex flex-row items-center gap-6">
           <li className="border-r border-gray-500 pr-6">Pricing</li>
-          <li className="border-r border-gray-500 pr-6">Log in</li>
-          <li className="border p-1 border-gray-500 rounded-sm shadow-md">
-            Sign up
+          <li className="border-r pr-6 border-gray-500">
+            <a href="https://write.fieldnotes.land">Login</a>
           </li>
+          <a
+            className="border p-1 border-gray-500 rounded-sm shadow-md hover:bg-yellow-200"
+            href="https://write.fieldnotes.land"
+          >
+            Sign up
+          </a>
         </ul>
       </div>
     </div>
