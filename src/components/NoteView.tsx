@@ -5,6 +5,7 @@ import { ArrowLeftIcon, FrownIcon, SadIcon } from './icons';
 import DOMPurify from 'dompurify';
 import useLocation from 'wouter/use-location';
 import { SpinnerPage } from './Spinner';
+import './noteStyles.css';
 
 export const BACK_QUERY = '?back=';
 export const NOTE_LINK = 'note/';
