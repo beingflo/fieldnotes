@@ -27,3 +27,9 @@ ul[data-type='taskList'] li > label {
 ul[data-type='taskList'] li > div {
   flex: 1 1 auto;
 }
+
+mark {
+  background-color: #fde047;
+  border-radius: 0.125rem;
+  padding: 0.125rem;
+}
