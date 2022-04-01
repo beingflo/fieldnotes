@@ -89,10 +89,10 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
-        <div className="flex flex-col items-center">
-          <SadIcon className="w-24 h-24 text-gray-800" />
-          <div className="text-lg text-gray-800">
+      <div className='flex h-screen flex-col items-center pt-20 md:justify-center md:pt-0'>
+        <div className='flex flex-col items-center'>
+          <SadIcon className='h-24 w-24 text-gray-800' />
+          <div className='text-lg text-gray-800'>
             There doesn't appear to be anything here
           </div>
         </div>
@@ -101,22 +101,22 @@ export const PublicationsView = ({ username }: Props): React.ReactElement => {
   }
 
   return (
-    <div className="mx-auto py-8 w-max max-w-full prose prose-sm md:prose px-4 sm:max-w-md md:max-w-lg lg:max-w-2xl">
-      <div className="pb-8 font-bold text-2xl text-black">
+    <div className='prose prose-sm mx-auto w-max max-w-full py-8 px-4 sm:max-w-md md:prose md:max-w-lg lg:max-w-2xl'>
+      <div className='pb-8 text-2xl font-bold text-black'>
         {username}'s fieldnotes
       </div>
       {publications.map((publication: Publication) => (
-        <div key={publication.token} className="pb-4">
-          <a className="text-lg" href={shareLink(publication)}>
+        <div key={publication.token} className='pb-4'>
+          <a className='text-lg' href={shareLink(publication)}>
             {publication.title}
           </a>
-          <div className="flex flex-row gap-4">
-            <div className="text-gray-500">
+          <div className='flex flex-row gap-4'>
+            <div className='text-gray-500'>
               {creationDate(publication.created_at)}
             </div>
             {shouldShowModificationDate(publication) && (
-              <div className="text-gray-500 flex flex-row gap-1 items-center">
-                <EditIcon className="w-4 h-4" />
+              <div className='flex flex-row items-center gap-1 text-gray-500'>
+                <EditIcon className='h-4 w-4' />
                 {creationDate(publication.modified_at)}
               </div>
             )}

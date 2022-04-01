@@ -66,24 +66,24 @@ export const NoteView = ({ token = '' }: Props): React.ReactElement => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center pt-20 md:pt-0 md:justify-center h-screen">
-        <div className="flex flex-col items-center">
-          <SadIcon className="w-24 h-24 text-gray-800" />
-          <div className="text-lg text-gray-800">Something went wrong</div>
+      <div className='flex h-screen flex-col items-center pt-20 md:justify-center md:pt-0'>
+        <div className='flex flex-col items-center'>
+          <SadIcon className='h-24 w-24 text-gray-800' />
+          <div className='text-lg text-gray-800'>Something went wrong</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="h-auto w-full">
-      <div className="mx-auto w-max max-w-full min-w-full sm:min-w-sm lg:max-w-2xl py-6 md:py-10 px-4 md:px-2 prose prose-headings:font-semibold prose-h1:tracking-tight prose-p:text-gray-800 marker:text-gray-800 prose-pre:bg-gray-800 prose-pre:rounded-sm">
+    <div className='h-auto w-full'>
+      <div className='prose mx-auto w-max min-w-full max-w-full py-6 px-4 marker:text-gray-800 prose-headings:font-semibold prose-h1:tracking-tight prose-p:text-gray-800 prose-pre:rounded-sm prose-pre:bg-gray-800 sm:min-w-sm md:py-10 md:px-2 lg:max-w-2xl'>
         {backRef && (
           <button
             onClick={handleBack}
-            className="pb-4 flex flex-row gap-1 items-center text-gray-700 hover:-translate-x-0.5 transition active:scale-90"
+            className='flex flex-row items-center gap-1 pb-4 text-gray-700 transition hover:-translate-x-0.5 active:scale-90'
           >
-            <ArrowLeftIcon className="h-5 w-5" />
+            <ArrowLeftIcon className='h-5 w-5' />
             <div>{backRef}</div>
           </button>
         )}

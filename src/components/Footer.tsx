@@ -3,9 +3,9 @@ import '../style.css';
 
 const Footer = (): React.ReactElement => {
   return (
-    <div className="bg-[#F1E3D3]">
-      <span className="absolute font-bold p-2 text-white bg-black">footer</span>
-      <div className="flex flex-col pt-16 items-center">Footer</div>
+    <div className='bg-[#F1E3D3]'>
+      <span className='absolute bg-black p-2 font-bold text-white'>footer</span>
+      <div className='flex flex-col items-center pt-16'>Footer</div>
     </div>
   );
 };
