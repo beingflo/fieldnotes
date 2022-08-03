@@ -1,7 +1,7 @@
 import React from 'react';
 import { access_share } from '../api/share_api';
 import { decrypt_note } from './crypto';
-import { ArrowLeftIcon, FrownIcon, SadIcon } from './icons';
+import { ArrowLeftIcon, SadIcon } from './icons';
 import DOMPurify from 'dompurify';
 import useLocation from 'wouter/use-location';
 import { SpinnerPage } from './Spinner';
