@@ -1,5 +1,5 @@
 import React from 'react';
-import { NoteView } from './NoteView';
+import { ShareView } from './ShareView';
 import { useRoute } from 'wouter';
 
 const App = (): React.ReactElement => {
@@ -8,7 +8,7 @@ const App = (): React.ReactElement => {
 
   return (
     <>
-      <NoteView token={token} />
+      <ShareView token={token} />
     </>
   );
 };
