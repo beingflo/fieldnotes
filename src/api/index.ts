@@ -1,4 +1,4 @@
-export const mapError = (response: Response): any => {
+export const mapError = (response: Response): Response => {
   if (!response.ok) {
     throw Error(response.statusText);
   }
